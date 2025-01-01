@@ -24,8 +24,8 @@ This project focuses on classifying textual data using machine learning techniqu
 ```
 text-classification-ml/
 |— static/
-|   |— css/
-|   |— js/
+|   |— style.css/
+|   |— script.js/
 |   |— screenshots/
 |       |— homepage.png
 |— templates/
