@@ -5,70 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Text Classification Using Machine Learning</title>
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f4f4f9;
-            color: #333;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            text-align: center;
-        }
-
-        h1 {
-            color: #444;
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-        }
-
-        textarea {
-            width: 80%;
-            max-width: 700px;
-            height: 150px;
-            margin: 20px 0;
-            padding: 10px;
-            font-size: 16px;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        button {
-            padding: 12px 30px;
-            font-size: 16px;
-            color: #fff;
-            background-color: #007BFF;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        button:hover {
-            background-color: #0056b3;
-        }
-
-        .result {
-            margin-top: 20px;
-            font-size: 18px;
-            color: #28a745;
-        }
-
-        .error {
-            color: #dc3545;
-        }
-
-        footer {
-            margin-top: 50px;
-            font-size: 14px;
-            color: #777;
-        }
-    </style>
+    <!-- Link the CSS file from the static folder -->
+    <link rel="stylesheet" href="static/styles.css">
 </head>
 <body>
     <h1>Text Classification Using Machine Learning</h1>
@@ -78,38 +16,7 @@
 
     <footer>© 2024 Text Classification Project</footer>
 
-    <script>
-        function classifyText() {
-            const inputText = document.getElementById('inputText').value.trim();
-            const resultDiv = document.getElementById('result');
-            resultDiv.innerText = ""; // Clear previous results
-
-            if (!inputText) {
-                resultDiv.innerHTML = '<span class="error">Please enter some text to classify!</span>';
-                return;
-            }
-
-            fetch('/classify', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                body: 'input_text=' + encodeURIComponent(inputText)
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.error) {
-                    resultDiv.innerHTML = `<span class="error">${data.error}</span>`;
-                } else {
-                    resultDiv.innerHTML = `
-                        <strong>Naive Bayes:</strong> ${data['Naive Bayes Prediction']}<br>
-                        <strong>SVM:</strong> ${data['SVM Prediction']}<br>
-                        <strong>Complement Naive Bayes:</strong> ${data['Complement Naive Bayes Prediction']}
-                    `;
-                }
-            })
-            .catch(error => {
-                resultDiv.innerHTML = `<span class="error">An error occurred: ${error.message}</span>`;
-            });
-        }
-    </script>
+    <!-- Link the JavaScript file from the static folder -->
+    <script src="static/script.js"></script>
 </body>
 </html>
